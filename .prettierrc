@@ -1,0 +1,24 @@
+{
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "useTabs": false,
+    "trailingComma": "all",
+    "printWidth": 100,
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "overrides": [
+        {
+            "files": [
+                "*.json",
+                "*.jsonc",
+                "*.scss",
+                "*.css"
+            ],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
+}

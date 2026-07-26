@@ -1,0 +1,214 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: $z-burger-menu - 1;
+  background-color: $color-overlay;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity $transition-base,
+    visibility $transition-base;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.overlayVisible {
+  opacity: 1;
+  visibility: visible;
+
+  @include tablet {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: $header-height-mobile;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-burger-menu;
+  background-color: $color-white;
+  transform: translateX(100%);
+  transition: transform $transition-base;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 2rem;
+
+  @include tablet {
+    position: static;
+    transform: none;
+    background: none;
+    overflow: visible;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+.navOpen {
+  transform: translateX(0);
+
+  @include tablet {
+    transform: none;
+  }
+}
+
+.navTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+
+  @include tablet {
+    flex: none;
+
+    .navTitle {
+      display: none;
+    }
+  }
+}
+
+.navBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  text-align: center;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.navTitle {
+  font-size: 1.4rem;
+  font-weight: $font-weight-semibold;
+  color: $color-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 2rem;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 3.2rem;
+  }
+}
+
+.navLink {
+  font-size: 2.4rem;
+  font-weight: $font-weight-medium;
+  color: $color-gray-500;
+  text-decoration: none;
+  transition: color $transition-fast;
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 0;
+
+  @include tablet {
+    font-size: 1.6rem;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $color-primary;
+    transition: width $transition-base;
+  }
+
+  @media (hover: hover) {
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.navLinkActive {
+  color: $color-primary;
+
+  &::after {
+    width: 100%;
+  }
+}
+
+.navSocialList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+
+  @media (max-width: 360px) {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}
+
+.navSocialItem {
+  flex: 0 1 auto;
+}
+
+.navSocialBurgerLink {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: $font-weight-medium;
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+  padding: 0.6rem 0;
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-primary-dark;
+
+      .navSocialIcon {
+        color: $color-primary-dark;
+      }
+    }
+  }
+}
+
+.navSocialIcon {
+  color: $color-primary;
+  transition: color $transition-fast;
+  flex-shrink: 0;
+}
+
+.navSocialLabel {
+  white-space: nowrap;
+}

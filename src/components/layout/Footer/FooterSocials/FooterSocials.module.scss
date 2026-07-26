@@ -1,0 +1,44 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.title {
+  font-size: 1.6rem;
+  font-weight: $font-weight-semibold;
+  margin: 0 0 1.6rem;
+  color: $color-secondary;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: rgba($color-white, 0.6);
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-primary;
+
+      .icon {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+.icon {
+  color: rgba($color-white, 0.6);
+  transition: color $transition-fast;
+  flex-shrink: 0;
+}

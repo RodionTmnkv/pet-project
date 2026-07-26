@@ -1,0 +1,53 @@
+@import '../../../styles/variables';
+
+.section {
+  width: 100%;
+}
+
+.top-sm {
+  padding-top: 4rem;
+}
+.top-md {
+  padding-top: 8rem;
+}
+.top-lg {
+  padding-top: 12rem;
+}
+.top-none {
+  padding-top: 0;
+}
+
+.bottom-sm {
+  padding-bottom: 4rem;
+}
+.bottom-md {
+  padding-bottom: 8rem;
+}
+.bottom-lg {
+  padding-bottom: 12rem;
+}
+.bottom-none {
+  padding-bottom: 0;
+}
+
+@media (min-width: #{$tablet}px) {
+  .top-sm {
+    padding-top: 6rem;
+  }
+  .top-md {
+    padding-top: 10rem;
+  }
+  .top-lg {
+    padding-top: 16rem;
+  }
+
+  .bottom-sm {
+    padding-bottom: 6rem;
+  }
+  .bottom-md {
+    padding-bottom: 10rem;
+  }
+  .bottom-lg {
+    padding-bottom: 16rem;
+  }
+}

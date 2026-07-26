@@ -1,0 +1,30 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.link {
+  @include flex-center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  color: $color-gray-400;
+  transition:
+    color $transition-fast,
+    background-color $transition-fast;
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-primary;
+      background-color: rgba($color-primary, 0.1);
+    }
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+}
