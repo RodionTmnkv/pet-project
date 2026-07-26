@@ -1,5 +1,3 @@
-export type TBreakpoint = 'mobile' | 'tablet' | 'laptop' | 'desktop';
-
 export type TNavItem = {
     id: string;
     label: string;
@@ -12,10 +10,4 @@ export type TSocialLink = {
     label: string;
     href: string;
     icon: 'telegram' | 'whatsapp' | 'email';
-};
-
-export type TContactInfo = {
-    phone?: string;
-    email?: string;
-    address?: string;
 };

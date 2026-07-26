@@ -3,6 +3,7 @@ import { cn } from '@/utils/cn';
 import { Container } from '@/components/ui';
 import { FooterNav } from './FooterNav/FooterNav';
 import { FooterSocials } from './FooterSocials/FooterSocials';
+import { FooterLogo } from './FooterLogo/FooterLogo';
 import type { TFooterProps } from './Footer.types';
 import styles from './Footer.module.scss';
 
@@ -14,12 +15,13 @@ const Footer: FC<TFooterProps> = ({ className }) => {
             <Container className={styles.footerInner}>
                 <div className={styles.footerTop}>
                     <FooterNav />
+                    <FooterLogo />
                     <FooterSocials />
                 </div>
 
                 <div className={styles.footerBottom}>
                     <p className={styles.copyright}>
-                        &copy; {currentYear} Сегмент. Все права защищены.
+                        &copy; {currentYear} Pet Project. Все права защищены.
                     </p>
                 </div>
             </Container>

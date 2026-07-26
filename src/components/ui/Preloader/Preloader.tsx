@@ -5,11 +5,12 @@ import Image from 'next/image';
 import { cn } from '@/utils/cn';
 import type { TPreloaderProps } from './Preloader.types';
 import styles from './Preloader.module.scss';
+import { assetPath } from '@/utils/assetPath';
 
 const STORAGE_KEY = 'preloader-shown';
 
 const Preloader: FC<TPreloaderProps> = ({
-    logoSrc = '/images/common/panda-logo.svg',
+    logoSrc = assetPath('/images/common/panda-logo.svg'),
     minDuration = 3000,
 }) => {
     const [isVisible, setIsVisible] = useState(true);

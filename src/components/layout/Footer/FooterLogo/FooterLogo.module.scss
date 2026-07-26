@@ -1,0 +1,9 @@
+@import '../../../../styles/mixins';
+
+.order {
+  display: none;
+
+  @include tablet {
+    display: flex;
+  }
+}

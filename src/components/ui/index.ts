@@ -1,7 +1,5 @@
 export { Container } from './Container/Container';
 export type { TContainerProps } from './Container/Container.types';
-export { Typography } from './Typography/Typography';
-export type { TTypographyProps } from './Typography/Typography.types';
 export { Icon } from './Icon/Icon';
 export type { TIconProps, TIconName } from './Icon/Icon.types';
 export { Logo } from './Logo/Logo';
@@ -10,3 +8,5 @@ export { Section } from './Section/Section';
 export type { TSectionProps } from './Section/Section.types';
 export { Preloader } from './Preloader/Preloader';
 export type { TPreloaderProps } from './Preloader/Preloader.types';
+export { PandaLogo } from './PandaLogo/PandaLogo';
+export type { TPandaLogoProps } from './PandaLogo/PandaLogo.types';

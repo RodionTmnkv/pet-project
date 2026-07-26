@@ -14,6 +14,7 @@ const FooterNav: FC<TFooterNavProps> = ({ items = FOOTER_NAV_ITEMS, className })
                     <li key={id}>
                         <Link
                             href={href}
+                            prefetch={false}
                             className={styles.link}
                             {...(isExternal
                                 ? { target: '_blank', rel: 'noopener noreferrer' }

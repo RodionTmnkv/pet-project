@@ -4,14 +4,15 @@ import { Header } from '@/components/layout/Header/Header';
 import { Footer } from '@/components/layout/Footer/Footer';
 import { Preloader } from '@/components/ui';
 import styles from './layout.module.scss';
+import { assetPath } from '@/utils/assetPath';
 
 export const metadata: Metadata = {
     title: 'Pet Project',
     description: 'Переработка бумажных отходов и утилизация мукулатуры',
     icons: {
-        icon: '/images/common/favicon.svg',
-        shortcut: '/images/common/favicon.ico',
-        apple: '/images/common/apple-touch-icon.png',
+        icon: assetPath('/images/common/favicon.svg'),
+        shortcut: assetPath('/images/common/favicon.ico'),
+        apple: assetPath('/images/common/apple-touch-icon.png'),
     },
 };
 
