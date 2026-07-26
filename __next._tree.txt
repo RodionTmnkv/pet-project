@@ -1,4 +1,4 @@
 :HL["/pet-project/_next/static/chunks/3qqt85-fjhyq2.css","style"]
-:HL["/pet-project/_next/static/chunks/0q0k5dw3bzj0g.css","style"]
+:HL["/pet-project/_next/static/chunks/3eottkp6g92ij.css","style"]
 :HL["/pet-project/_next/static/chunks/04kszsolw0jla.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"nnRZZ_h4QEJSECUZ7t6U4"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"Z0n7JrMQglKG1ScRChSQx"}
