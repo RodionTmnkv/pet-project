@@ -1,6 +1,6 @@
 'use client';
 
-import { type FC, useEffect, useState, useRef, useCallback } from 'react';
+import { type FC, useEffect, useState, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { cn } from '@/utils/cn';
 import { assetPath } from '@/utils/assetPath';
@@ -9,21 +9,19 @@ import { useLockedBody } from '@/hooks';
 import type { TProductGalleryProps } from './ProductGallery.types';
 import styles from './ProductGallery.module.scss';
 
+const SWIPE_THRESHOLD = 50;
+
 const ProductGallery: FC<TProductGalleryProps> = ({ product, isOpen, onClose, className }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [wasOpen, setWasOpen] = useState(false);
     const { lock, unlock } = useLockedBody();
-    const isTransitioning = useRef(false);
+    const touchStartX = useRef(0);
+    const touchStartY = useRef(0);
 
     const images = [product.image, ...product.gallery];
 
     const goTo = useCallback((index: number) => {
-        if (isTransitioning.current) return;
-        isTransitioning.current = true;
         setActiveIndex(index);
-        setTimeout(() => {
-            isTransitioning.current = false;
-        }, 400);
     }, []);
 
     // Сброс индекса при открытии
@@ -61,6 +59,28 @@ const ProductGallery: FC<TProductGalleryProps> = ({ product, isOpen, onClose, cl
         return () => document.removeEventListener('keydown', handleKeyDown);
     }, [isOpen, activeIndex, images.length, onClose, goTo]);
 
+    // Touch-события для свайпов
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchStartX.current = e.touches[0].clientX;
+        touchStartY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+        const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+
+        // Свайп должен быть горизонтальным (горизонтальное смещение больше вертикального)
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > SWIPE_THRESHOLD) {
+            if (deltaX > 0) {
+                // Свайп вправо — предыдущий слайд
+                goTo(activeIndex > 0 ? activeIndex - 1 : images.length - 1);
+            } else {
+                // Свайп влево — следующий слайд
+                goTo(activeIndex < images.length - 1 ? activeIndex + 1 : 0);
+            }
+        }
+    };
+
     if (!isOpen) return null;
 
     return (
@@ -82,43 +102,39 @@ const ProductGallery: FC<TProductGalleryProps> = ({ product, isOpen, onClose, cl
                     </p>
                 </div>
 
-                <div className={styles.carousel}>
+                <div
+                    className={styles.carousel}
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}
+                >
                     <div className={styles.track}>
-                        {images.map((img, index) => {
-                            const offset = index - activeIndex;
-
-                            return (
-                                <div
-                                    key={img}
-                                    className={cn(styles.slide, {
-                                        [styles.slideActive]: index === activeIndex,
-                                        [styles.slidePrev]:
-                                            offset === -1 ||
-                                            (activeIndex === 0 && index === images.length - 1),
-                                        [styles.slideNext]:
-                                            offset === 1 ||
-                                            (activeIndex === images.length - 1 && index === 0),
-                                        [styles.slideHidden]:
-                                            Math.abs(offset) > 1 &&
-                                            !(activeIndex === 0 && index === images.length - 1) &&
-                                            !(activeIndex === images.length - 1 && index === 0),
-                                    })}
-                                    onClick={() => goTo(index)}
-                                    role="button"
-                                    tabIndex={0}
-                                    aria-label={`Изображение ${index + 1}`}
-                                >
-                                    <Image
-                                        src={assetPath(img)}
-                                        alt=""
-                                        fill
-                                        sizes="(max-width: 768px) 80vw, 60vw"
-                                        className={styles.image}
-                                        priority={index === activeIndex}
-                                    />
-                                </div>
-                            );
-                        })}
+                        {images.map((img, index) => (
+                            <div
+                                key={img}
+                                className={cn(styles.slide, {
+                                    [styles.slideActive]: index === activeIndex,
+                                    [styles.slidePrev]:
+                                        index ===
+                                        (activeIndex === 0 ? images.length - 1 : activeIndex - 1),
+                                    [styles.slideNext]:
+                                        index ===
+                                        (activeIndex === images.length - 1 ? 0 : activeIndex + 1),
+                                })}
+                                onClick={() => goTo(index)}
+                                role="button"
+                                tabIndex={0}
+                                aria-label={`Изображение ${index + 1}`}
+                            >
+                                <Image
+                                    src={assetPath(img)}
+                                    alt=""
+                                    fill
+                                    sizes="(max-width: 768px) 80vw, 60vw"
+                                    className={styles.image}
+                                    priority={index === activeIndex}
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
 
