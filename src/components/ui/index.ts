@@ -10,3 +10,5 @@ export { Preloader } from './Preloader/Preloader';
 export type { TPreloaderProps } from './Preloader/Preloader.types';
 export { PandaLogo } from './PandaLogo/PandaLogo';
 export type { TPandaLogoProps } from './PandaLogo/PandaLogo.types';
+export { Button } from './Button/Button';
+export type { TButtonProps } from './Button/Button.types';

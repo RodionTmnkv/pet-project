@@ -1,0 +1,119 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-family: inherit;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border-radius: 10rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+        background-color $transition-base,
+        transform $transition-fast;
+
+    &:active {
+        transform: scale(0.97);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+    }
+}
+
+// Sizes
+.md {
+    padding: 1.2rem 2rem 1.2rem 2.8rem;
+    font-size: 1.6rem;
+}
+
+.lg {
+    padding: 1.6rem 2.4rem 1.6rem 3.2rem;
+    font-size: 1.8rem;
+}
+
+.text {
+    position: relative;
+    z-index: 1;
+}
+
+// Primary
+.primary {
+    color: $color-white;
+    background-color: $color-primary;
+
+    .iconWrapper {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.2rem;
+        height: 3.2rem;
+        background-color: rgba($color-white, 0.2);
+        border-radius: 50%;
+        overflow: hidden;
+        transition: background-color $transition-fast;
+    }
+
+    .icon {
+        transition: transform $transition-fast;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $color-primary-dark;
+        }
+
+        &:hover .iconWrapper {
+            background-color: rgba($color-white, 0.35);
+        }
+
+        &:hover .icon {
+            transform: rotate(45deg);
+        }
+    }
+}
+
+// Gradient (альтернативный, без градиента)
+.gradient {
+    color: $color-black;
+    background-color: $color-primary;
+
+    .iconWrapper {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.2rem;
+        height: 3.2rem;
+        background-color: rgba($color-black, 0.15);
+        border-radius: 50%;
+        overflow: hidden;
+        transition: background-color $transition-fast;
+    }
+
+    .icon {
+        transition: transform $transition-fast;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $color-primary-dark;
+        }
+
+        &:hover .iconWrapper {
+            background-color: rgba($color-black, 0.25);
+        }
+
+        &:hover .icon {
+            transform: rotate(45deg);
+        }
+    }
+}

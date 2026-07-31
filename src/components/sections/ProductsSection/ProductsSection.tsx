@@ -51,7 +51,12 @@ const ProductsSection: FC<TProductsSectionProps> = ({
     };
 
     return (
-        <Section heading={heading} className={cn(styles.section, className)} id="products-section">
+        <Section
+            heading={heading}
+            className={cn(styles.section, className)}
+            id="products-section"
+            background="gray"
+        >
             <div className={styles.grid}>
                 {currentProducts.map((product) => (
                     <ProductCard key={product.id} product={product} onCardClick={handleCardClick} />

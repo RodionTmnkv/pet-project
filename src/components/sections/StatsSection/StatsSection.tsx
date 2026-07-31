@@ -39,7 +39,11 @@ const StatsSection: FC<TStatsSectionProps> = ({ stats = STATS, className }) => {
     }, [isInView]);
 
     return (
-        <Section className={cn(styles.section, className)} heading="Наши преимущества">
+        <Section
+            className={cn(styles.section, className)}
+            heading="Наши преимущества"
+            background="gray"
+        >
             <div ref={ref} className={styles.grid}>
                 {stats.map((stat) => (
                     <StatCard key={stat.id} stat={stat} isActive={isActive} />

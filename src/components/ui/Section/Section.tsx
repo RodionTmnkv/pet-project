@@ -12,6 +12,7 @@ const Section: FC<TSectionProps> = ({
     bottomPadding = 'md',
     heading,
     headingClassName,
+    background = 'white',
     ...rest
 }) => {
     return (
@@ -20,6 +21,7 @@ const Section: FC<TSectionProps> = ({
                 styles.section,
                 styles[`top-${topPadding}`],
                 styles[`bottom-${bottomPadding}`],
+                styles[`bg-${background}`],
                 className,
             )}
             {...rest}

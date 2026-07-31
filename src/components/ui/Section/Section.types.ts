@@ -8,4 +8,5 @@ export type TSectionProps = HTMLAttributes<HTMLElement> & {
     bottomPadding?: 'sm' | 'md' | 'lg' | 'none';
     heading?: string;
     headingClassName?: string;
+    background?: 'white' | 'gray';
 };
