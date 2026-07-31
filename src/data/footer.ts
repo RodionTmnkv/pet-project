@@ -9,22 +9,8 @@ export const FOOTER_NAV_ITEMS: TNavItem[] = [
 ];
 
 export const FOOTER_SOCIAL_LINKS: TSocialLink[] = [
-    {
-        id: 'telegram',
-        label: 'Telegram',
-        href: 'https://t.me/username',
-        icon: 'telegram',
-    },
-    {
-        id: 'whatsapp',
-        label: 'WhatsApp',
-        href: 'https://wa.me/1234567890',
-        icon: 'whatsapp',
-    },
-    {
-        id: 'email',
-        label: 'Email',
-        href: 'mailto:info@petproject.ru',
-        icon: 'email',
-    },
+    { id: 'telegram', label: 'Telegram', href: 'https://t.me/username', icon: 'telegram' },
+    { id: 'max', label: 'Max', href: 'https://max.ru/username', icon: 'max' },
+    { id: 'whatsapp', label: 'WhatsApp', href: 'https://wa.me/1234567890', icon: 'whatsapp' },
+    { id: 'email', label: 'Email', href: 'mailto:info@petproject.ru', icon: 'email' },
 ];

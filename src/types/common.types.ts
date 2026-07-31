@@ -9,5 +9,5 @@ export type TSocialLink = {
     id: string;
     label: string;
     href: string;
-    icon: 'telegram' | 'whatsapp' | 'email';
+    icon: 'telegram' | 'whatsapp' | 'email' | 'max';
 };
