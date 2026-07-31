@@ -12,9 +12,7 @@
         {
             "files": [
                 "*.json",
-                "*.jsonc",
-                "*.scss",
-                "*.css"
+                "*.jsonc"
             ],
             "options": {
                 "tabWidth": 2

@@ -79,7 +79,7 @@ src/
 │   ├── useActiveSlide.ts         #    Активный слайд
 │   ├── useCountUp.ts             #    Анимация чисел
 │   ├── useInView.ts              #    Отслеживание вьюпорта
-│   └── useMediaQuery.ts          #    Медиа-запросы
+│   └── useDevice.ts              #    Медиа-запросы
 │
 ├── data/                         # 🗃️  Моковые данные
 ├── types/                        # 🏷️  Общие типы

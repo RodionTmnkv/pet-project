@@ -10,6 +10,8 @@ const Section: FC<TSectionProps> = ({
     className,
     topPadding = 'md',
     bottomPadding = 'md',
+    heading,
+    headingClassName,
     ...rest
 }) => {
     return (
@@ -22,7 +24,10 @@ const Section: FC<TSectionProps> = ({
             )}
             {...rest}
         >
-            <Container>{children}</Container>
+            <Container>
+                {heading && <h2 className={cn(styles.heading, headingClassName)}>{heading}</h2>}
+                {children}
+            </Container>
         </Tag>
     );
 };

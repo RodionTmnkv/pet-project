@@ -2,143 +2,143 @@
 @import '../../../styles/mixins';
 
 .slider {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
 }
 
 .track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .slide {
-  position: relative;
-  flex: 0 0 100%;
-  width: 100%;
-  height: 40rem;
-  scroll-snap-align: start;
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    height: 40rem;
+    scroll-snap-align: start;
 
-  @include tablet {
-    height: 70vh;
-    min-height: 50rem;
-    max-height: 80rem;
-  }
+    @include tablet {
+        height: 70vh;
+        min-height: 50rem;
+        max-height: 80rem;
+    }
 }
 
 .image {
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
 }
 
 .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
-  z-index: 1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
 }
 
 .content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-  padding-bottom: 5rem;
-  align-items: flex-start;
-  text-align: left;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    padding-bottom: 5rem;
+    align-items: flex-start;
+    text-align: left;
 
-  @include tablet {
-    padding-bottom: 10rem;
-  }
+    @include tablet {
+        padding-bottom: 10rem;
+    }
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 5.6rem);
-  font-weight: $font-weight-bold;
-  color: $color-white;
-  line-height: 1.15;
-  margin: 0 0 1.2rem;
-  max-width: 80rem;
+    font-size: clamp(2rem, 5vw, 5.6rem);
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    line-height: 1.15;
+    margin: 0 0 1.2rem;
+    max-width: 80rem;
 
-  @include tablet {
-    font-size: clamp(3.2rem, 5vw, 5.6rem);
-    margin-bottom: 1.6rem;
-  }
+    @include tablet {
+        font-size: clamp(3.2rem, 5vw, 5.6rem);
+        margin-bottom: 1.6rem;
+    }
 }
 
 .subtitle {
-  font-size: clamp(1.4rem, 2vw, 2rem);
-  font-weight: $font-weight-regular;
-  color: rgba($color-white, 0.85);
-  line-height: 1.4;
-  margin: 0;
-  max-width: 60rem;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    font-weight: $font-weight-regular;
+    color: rgba($color-white, 0.85);
+    line-height: 1.4;
+    margin: 0;
+    max-width: 60rem;
 
-  @include tablet {
-    font-size: clamp(1.6rem, 2.5vw, 2rem);
-    line-height: 1.5;
-  }
+    @include tablet {
+        font-size: clamp(1.6rem, 2.5vw, 2rem);
+        line-height: 1.5;
+    }
 }
 
 .dots {
-  position: absolute;
-  bottom: 2.4rem;
-  right: 2rem;
-  left: auto;
-  transform: none;
-  display: flex;
-  gap: 1.2rem;
-  z-index: 2;
+    position: absolute;
+    bottom: 2.4rem;
+    right: 2rem;
+    left: auto;
+    transform: none;
+    display: flex;
+    gap: 1.2rem;
+    z-index: 2;
 
-  @include tablet {
-    bottom: 3.2rem;
-    right: 4rem;
-  }
+    @include tablet {
+        bottom: 3.2rem;
+        right: 4rem;
+    }
 }
 
 .dot {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  border: 2px solid rgba($color-white, 0.6);
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0;
-  transition:
-    background-color $transition-fast,
-    border-color $transition-fast;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2px solid rgba($color-white, 0.6);
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition:
+        background-color $transition-fast,
+        border-color $transition-fast;
 
-  @include tablet {
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      border-color: $color-primary;
+    @include tablet {
+        width: 1.2rem;
+        height: 1.2rem;
     }
-  }
 
-  &:focus-visible {
-    outline: 2px solid $color-primary;
-    outline-offset: 2px;
-  }
+    @media (hover: hover) {
+        &:hover {
+            border-color: $color-primary;
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+    }
 }
 
 .dotActive {
-  background-color: $color-primary;
-  border-color: $color-primary;
+    background-color: $color-primary;
+    border-color: $color-primary;
 }

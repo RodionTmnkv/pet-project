@@ -1,9 +1,9 @@
 @import '../../../../styles/mixins';
 
 .order {
-  display: none;
+    display: none;
 
-  @include tablet {
-    display: flex;
-  }
+    @include tablet {
+        display: flex;
+    }
 }

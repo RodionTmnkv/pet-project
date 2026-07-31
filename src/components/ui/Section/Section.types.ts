@@ -6,4 +6,6 @@ export type TSectionProps = HTMLAttributes<HTMLElement> & {
     className?: string;
     topPadding?: 'sm' | 'md' | 'lg' | 'none';
     bottomPadding?: 'sm' | 'md' | 'lg' | 'none';
+    heading?: string;
+    headingClassName?: string;
 };

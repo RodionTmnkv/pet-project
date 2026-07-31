@@ -1,53 +1,73 @@
 @import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .section {
-  width: 100%;
+    width: 100%;
+}
+
+.heading {
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    font-weight: $font-weight-bold;
+    color: $color-black;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 2.4rem;
+
+    @include tablet {
+        padding-bottom: 3.6rem;
+    }
 }
 
 .top-sm {
-  padding-top: 4rem;
+    padding-top: 2.4rem;
 }
+
 .top-md {
-  padding-top: 8rem;
+    padding-top: 4.8rem;
 }
+
 .top-lg {
-  padding-top: 12rem;
+    padding-top: 7.2rem;
 }
+
 .top-none {
-  padding-top: 0;
+    padding-top: 0;
 }
 
 .bottom-sm {
-  padding-bottom: 4rem;
+    padding-bottom: 2.4rem;
 }
+
 .bottom-md {
-  padding-bottom: 8rem;
+    padding-bottom: 4.8rem;
 }
+
 .bottom-lg {
-  padding-bottom: 12rem;
+    padding-bottom: 7.2rem;
 }
+
 .bottom-none {
-  padding-bottom: 0;
+    padding-bottom: 0;
 }
 
-@media (min-width: #{$tablet}px) {
-  .top-sm {
-    padding-top: 6rem;
-  }
-  .top-md {
-    padding-top: 10rem;
-  }
-  .top-lg {
-    padding-top: 16rem;
-  }
+@include tablet {
+    .top-sm {
+        padding-top: 3.6rem;
+    }
+    .top-md {
+        padding-top: 6rem;
+    }
+    .top-lg {
+        padding-top: 9.6rem;
+    }
 
-  .bottom-sm {
-    padding-bottom: 6rem;
-  }
-  .bottom-md {
-    padding-bottom: 10rem;
-  }
-  .bottom-lg {
-    padding-bottom: 16rem;
-  }
+    .bottom-sm {
+        padding-bottom: 3.6rem;
+    }
+    .bottom-md {
+        padding-bottom: 6rem;
+    }
+    .bottom-lg {
+        padding-bottom: 9.6rem;
+    }
 }
