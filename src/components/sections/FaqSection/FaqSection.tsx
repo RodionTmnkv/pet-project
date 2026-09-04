@@ -28,7 +28,7 @@ const FaqSection: FC<TFaqSectionProps> = ({
     };
 
     return (
-        <Section heading={heading} className={cn(styles.section, className)}>
+        <Section heading={heading} background="gray" className={cn(styles.section, className)}>
             <div className={styles.list}>
                 {items.map((item) => (
                     <FaqItem
