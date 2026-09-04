@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { Section } from '@/components/ui';
-import styles from './page.module.scss';
+import { TextSection } from '@/components/ui';
+import { FaqSection } from '@/components/sections/FaqSection/FaqSection';
 
 export const metadata: Metadata = {
     title: 'О нас',
@@ -9,9 +9,32 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
     return (
-        <Section>
-            <h1 className={styles.title}>О нас</h1>
-            <p className={styles.text}>Здесь будет информация о компании.</p>
-        </Section>
+        <>
+            <TextSection align="left" heading="О нас">
+                <p>
+                    Наша компания специализируется на сборе, сортировке и переработке макулатуры
+                    промышленных объёмов. Мы работаем с предприятиями, типографиями, торговыми
+                    сетями и архивными службами, обеспечивая полный цикл обращения с бумажными
+                    отходами — от вывоза до передачи подготовленного сырья на перерабатывающие
+                    заводы.
+                </p>
+            </TextSection>
+            <TextSection align="left">
+                <p>
+                    Собственный автопарк позволяет вывозить макулатуру фурами от 10 тонн. Работаем
+                    по Ростовской области и югу России. Предоставляем полный пакет документов для
+                    бухгалтерии и экологической отчётности.
+                </p>
+            </TextSection>
+            <TextSection>
+                <p>
+                    Сотрудничаем напрямую с заводами по переработке мукулатуры, благодаря чему
+                    предлагаем конкурентные закупочные цены и гарантируем прозрачные условия
+                    сотрудничества для постоянных клиентов.
+                </p>
+            </TextSection>
+
+            <FaqSection />
+        </>
     );
 }

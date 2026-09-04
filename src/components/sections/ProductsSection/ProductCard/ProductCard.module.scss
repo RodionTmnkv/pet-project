@@ -102,6 +102,26 @@
     overflow: hidden;
 }
 
+// Стрелка-подсказка на лицевой стороне
+.arrowWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.arrowIcon {
+    color: $color-secondary;
+    transition:
+        color $transition-fast,
+        transform $transition-base;
+
+    .card:hover & {
+        color: $color-primary;
+        transform: rotate(45deg);
+    }
+}
+
 .backTitle {
     font-size: 1.8rem;
     font-weight: $font-weight-semibold;
@@ -111,7 +131,8 @@
     line-height: 1.3;
 }
 
-.detailButton {
+// Кнопка на обратной стороне
+.backButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;

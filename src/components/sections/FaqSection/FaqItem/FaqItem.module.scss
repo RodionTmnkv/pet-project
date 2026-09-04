@@ -1,0 +1,122 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.item {
+    border: 1px solid $color-gray-200;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    background-color: $color-white;
+    transition: border-color 0.3s ease;
+}
+
+.itemOpen {
+    border-color: $color-primary;
+}
+
+.question {
+    @include reset-button;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    padding: 2rem 2.4rem;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: rgba($color-primary, 0.05);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: -2px;
+    }
+}
+
+.questionText {
+    font-size: 1.6rem;
+    font-weight: $font-weight-semibold;
+    color: $color-black;
+    line-height: 1.4;
+
+    @include tablet {
+        font-size: 1.8rem;
+    }
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 2.2rem;
+    font-weight: $font-weight-regular;
+    color: $color-white;
+    background-color: $color-secondary;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    line-height: 1;
+    padding-bottom: 0.2rem;
+    box-sizing: border-box;
+}
+
+.itemOpen .icon {
+    transform: rotate(180deg);
+}
+
+.answerWrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.answerOpen {
+    max-height: 30rem;
+}
+
+.answer {
+    padding: 0 2.4rem 2rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition:
+        opacity 0.3s ease 0.1s,
+        transform 0.3s ease 0.1s;
+}
+
+.answerOpen .answer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.answerText {
+    font-size: 1.4rem;
+    font-weight: $font-weight-regular;
+    color: $color-gray-500;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 1.6rem;
+    border-top: 1px solid $color-gray-200;
+
+    @include tablet {
+        font-size: 1.6rem;
+    }
+}
+
+.link {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

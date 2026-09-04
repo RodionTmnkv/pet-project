@@ -10,7 +10,7 @@ import type { TStatsSectionProps } from './StatsSection.types';
 import styles from './StatsSection.module.scss';
 
 const StatCard: FC<{ stat: TStat; isActive: boolean }> = ({ stat, isActive }) => {
-    const count = useCountUp(stat.value, isActive, 2500);
+    const count = useCountUp(stat.value, isActive, 5000);
 
     return (
         <div className={styles.card}>

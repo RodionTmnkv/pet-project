@@ -4,6 +4,7 @@ import { type FC, useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/utils/cn';
 import { assetPath } from '@/utils/assetPath';
+import { Icon } from '@/components/ui';
 import type { TProductCardProps } from './ProductCard.types';
 import styles from './ProductCard.module.scss';
 
@@ -44,17 +45,16 @@ const ProductCard: FC<TProductCardProps> = ({ product, onCardClick, className })
                     <div className={styles.info}>
                         <h3 className={styles.title}>{product.title}</h3>
                         <p className={styles.description}>{product.description}</p>
+                        <span className={styles.arrowWrapper}>
+                            <Icon name="arrow-right" size={18} className={styles.arrowIcon} />
+                        </span>
                     </div>
                 </div>
 
                 {/* Обратная сторона */}
                 <div className={styles.cardBack}>
                     <h3 className={styles.backTitle}>{product.title}</h3>
-                    <button
-                        className={styles.detailButton}
-                        onClick={handleDetailClick}
-                        type="button"
-                    >
+                    <button className={styles.backButton} onClick={handleDetailClick} type="button">
                         Подробнее
                     </button>
                 </div>

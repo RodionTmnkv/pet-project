@@ -12,3 +12,5 @@ export { PandaLogo } from './PandaLogo/PandaLogo';
 export type { TPandaLogoProps } from './PandaLogo/PandaLogo.types';
 export { Button } from './Button/Button';
 export type { TButtonProps } from './Button/Button.types';
+export { TextSection } from './TextSection/TextSection';
+export type { TTextSectionProps } from './TextSection/TextSection.types';

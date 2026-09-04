@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Section } from '@/components/ui';
 import styles from './page.module.scss';
+import { FaqSection } from '@/components/sections/FaqSection/FaqSection';
 
 export const metadata: Metadata = {
     title: 'Портфолио',
@@ -9,9 +10,12 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
     return (
-        <Section>
-            <h1 className={styles.title}>Портфолио</h1>
-            <p className={styles.text}>Здесь будут представлены наши лучшие проекты.</p>
-        </Section>
+        <>
+            <Section>
+                <h1 className={styles.title}>Портфолио</h1>
+                <p className={styles.text}>Здесь будут представлены наши лучшие проекты.</p>
+            </Section>
+            <FaqSection />
+        </>
     );
 }

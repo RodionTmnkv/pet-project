@@ -12,14 +12,14 @@ import type { THeaderProps } from './Header.types';
 import styles from './Header.module.scss';
 
 const Header: FC<THeaderProps> = ({ className }) => {
-    const { isLocked: isMenuOpen, toggle } = useLockedBody();
+    const { isLocked: isMenuOpen, toggle, unlock } = useLockedBody();
 
     return (
         <header className={cn(styles.header, className)}>
             <Container className={styles.headerInner}>
                 <Logo className={styles.logo} />
 
-                <Nav isOpen={isMenuOpen} onClose={toggle} />
+                <Nav isOpen={isMenuOpen} onClose={unlock} />
 
                 <div className={styles.socials}>
                     {FOOTER_SOCIAL_LINKS.map(({ id, label, href, icon }) => (

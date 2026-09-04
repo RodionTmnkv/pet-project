@@ -1,0 +1,28 @@
+@import '../../../styles/variables';
+
+.heading {
+    text-align: left;
+
+    &.align-center {
+        text-align: center;
+    }
+}
+
+.content {
+    font-size: clamp(1.5rem, 2vw, 1.8rem);
+    font-weight: $font-weight-regular;
+    color: $color-gray-500;
+    line-height: 1.6;
+    text-align: left;
+    max-width: 80rem;
+
+    &.align-left {
+        margin-right: auto;
+    }
+
+    &.align-center {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
