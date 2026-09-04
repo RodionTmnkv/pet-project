@@ -13,21 +13,29 @@ const FaqSection: FC<TFaqSectionProps> = ({
     heading = 'Частые вопросы',
     className,
 }) => {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const [openIds, setOpenIds] = useState<Set<string>>(new Set());
 
-    const handleToggle = (index: number) => {
-        setOpenIndex(openIndex === index ? null : index);
+    const handleToggle = (id: string) => {
+        setOpenIds((prev) => {
+            const next = new Set(prev);
+            if (next.has(id)) {
+                next.delete(id);
+            } else {
+                next.add(id);
+            }
+            return next;
+        });
     };
 
     return (
-        <Section background="gray" heading={heading} className={cn(styles.section, className)}>
+        <Section heading={heading} className={cn(styles.section, className)}>
             <div className={styles.list}>
-                {items.map((item, index) => (
+                {items.map((item) => (
                     <FaqItem
                         key={item.id}
                         item={item}
-                        isOpen={openIndex === index}
-                        onToggle={() => handleToggle(index)}
+                        isOpen={openIds.has(item.id)}
+                        onToggle={() => handleToggle(item.id)}
                     />
                 ))}
             </div>
