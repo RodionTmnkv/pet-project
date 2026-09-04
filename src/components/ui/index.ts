@@ -14,3 +14,5 @@ export { Button } from './Button/Button';
 export type { TButtonProps } from './Button/Button.types';
 export { TextSection } from './TextSection/TextSection';
 export type { TTextSectionProps } from './TextSection/TextSection.types';
+export { CookieConsent } from './CookieConsent/CookieConsent';
+export type { TCookieConsentProps } from './CookieConsent/CookieConsent.types';

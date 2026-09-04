@@ -3,7 +3,7 @@ import { Nunito } from 'next/font/google';
 import '@/styles/globals.scss';
 import { Header } from '@/components/layout/Header/Header';
 import { Footer } from '@/components/layout/Footer/Footer';
-import { Preloader } from '@/components/ui';
+import { Preloader, CookieConsent } from '@/components/ui';
 import styles from './layout.module.scss';
 
 const nunito = Nunito({
@@ -35,6 +35,7 @@ export default function RootLayout({
                 <Header />
                 <main className={styles.main}>{children}</main>
                 <Footer />
+                <CookieConsent />
             </body>
         </html>
     );
